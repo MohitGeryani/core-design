@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {
   Search, Download, Filter, Calendar,
   Clock, AlertTriangle, Users, DollarSign, ArrowUpDown,
-  Icon,
+  
 } from 'lucide-react'
 
 const STATS = [
@@ -101,7 +101,7 @@ export default function TimesheetPage() {
 
       {/* ── Stat cards ── */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-5">
-        {STATS.map(({ label, value, iconBg, iconColor }) => (
+        {STATS.map(({ label, value, iconBg,  Icon, iconColor }) => (
           <div
             key={label}
             className="
