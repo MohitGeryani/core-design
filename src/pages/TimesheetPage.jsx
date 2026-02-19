@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {
   Search, Download, Filter, Calendar,
   Clock, AlertTriangle, Users, DollarSign, ArrowUpDown,
+  Icon,
 } from 'lucide-react'
 
 const STATS = [
@@ -86,7 +87,7 @@ export default function TimesheetPage() {
             <Filter size={14} />
           </button>
 
-          {/* Download */}
+          {/* Download btn */}
           <button className="
             w-9 h-9 rounded-full border border-gray-200 dark:border-gray-600
             bg-white dark:bg-[#2a2a2a] flex items-center justify-center
