@@ -1,6 +1,4 @@
-# CORE HR Dashboard
 
-A clean, responsive HR dashboard built to match a provided Figma design — two screens, pixel-close.
 
 ---
 
