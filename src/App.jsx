@@ -2,10 +2,11 @@ import { Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import TopBar from './components/TopBar'
 import PeoplePage from './pages/PeoplePage'
-import TimesheetPage from './pages/Timesheetpage'
+import TimesheetPage from './pages/TimesheetPage'
 import './App.css'
 
 export default function App() {
+  
   return (
     <div className="flex h-screen bg-[#EBEBEB] p-3 gap-3 overflow-hidden pt-[68px] md:pt-3">
       <Sidebar />
