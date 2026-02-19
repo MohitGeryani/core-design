@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import TopBar from './components/TopBar'
 import PeoplePage from './pages/PeoplePage'
-import TimesheetPage from './pages/TimesheetPage'
+import TimesheetPage from './pages/Timesheetpage'
 import './App.css'
 
 export default function App() {
