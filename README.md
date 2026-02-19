@@ -11,11 +11,11 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) and you're good to go.
+Open  the port its running on.
 
 ---
 
-## Tech Stack
+## Tech Stack I used 
 
 - **Vite + React** — fast dev setup, no fluff
 - **Tailwind CSS v4** — utility-first styling
