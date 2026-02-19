@@ -34,9 +34,3 @@ Open [http://localhost:5173](http://localhost:5173) and you're good to go.
 
 ---
 
-## Assumptions
-
-- Employee photos and data are mocked — no real API connected
-- The colored dots on people cards represent skill/tag indicators (colors matched from Figma)
-- Sidebar collapse, search filtering, and pagination controls are functional UI — no backend
-- Fonts load from Google Fonts (Montserrat), so an internet connection is needed for that to render correctly
