@@ -36,15 +36,18 @@ const NAV_ITEMS = [
 
 // ─── Shared style helpers ─────────────────────────────────────────────────────
 
-// Wider padding (px-4 py-[13px]), Montserrat via CSS var set in index.css
 const navItemBase = [
   'flex items-center gap-3 w-full px-4 py-[13px] rounded-xl',
   'text-[13.5px] font-medium transition-colors duration-150 text-left',
 ].join(' ')
 
-// Active = solid white pill, dark text
-const navActive = 'bg-white text-gray-900'
-// Default = white at 90% opacity; hover = 100% + subtle bg
+// Collapsed version — square, centered icon
+const navItemCollapsed = [
+  'flex items-center justify-center w-full py-[13px] rounded-xl',
+  'text-[13.5px] font-medium transition-colors duration-150',
+].join(' ')
+
+const navActive   = 'bg-white text-gray-900'
 const navInactive = 'text-white/90 hover:text-white hover:bg-white/10'
 
 // ─── Root component ───────────────────────────────────────────────────────────
@@ -56,7 +59,6 @@ export default function Sidebar() {
   const [teamOpen,   setTeamOpen]   = useState(() => TEAM_CHILDREN.includes(location.pathname))
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  // Derived — no useEffect needed
   const isTeamChild       = TEAM_CHILDREN.includes(location.pathname)
   const effectiveTeamOpen = teamOpen || isTeamChild
 
@@ -192,7 +194,9 @@ const SidebarBody = memo(function SidebarBody({
       <div className="px-2 pb-4 pt-2 shrink-0 border-t border-white/10 mt-2">
         <NavLink
           to="/settings"
-          className={({ isActive }) => `${navItemBase} ${isActive ? navActive : navInactive}`}
+          className={({ isActive }) =>
+            `${collapsed ? navItemCollapsed : navItemBase} ${isActive ? navActive : navInactive}`
+          }
         >
           <Settings size={17} className="shrink-0" />
           {!collapsed && <span>Settings</span>}
@@ -210,7 +214,9 @@ const RegularNavItem = memo(function RegularNavItem({ item, collapsed }) {
     <NavLink
       to={item.to}
       end={!!item.exact}
-      className={({ isActive }) => `${navItemBase} ${isActive ? navActive : navInactive}`}
+      className={({ isActive }) =>
+        `${collapsed ? navItemCollapsed : navItemBase} ${isActive ? navActive : navInactive}`
+      }
     >
       {({ isActive }) => (
         <>
@@ -243,7 +249,7 @@ const TeamNavItem = memo(function TeamNavItem({
       <button
         onClick={toggleTeam}
         aria-expanded={teamOpen}
-        className={`${navItemBase} ${isTeamChild ? 'text-white' : navInactive}`}
+        className={`${collapsed ? navItemCollapsed : navItemBase} ${isTeamChild ? 'text-white' : navInactive}`}
       >
         <item.icon size={17} className="shrink-0" />
         {!collapsed && (
@@ -260,7 +266,6 @@ const TeamNavItem = memo(function TeamNavItem({
       {/* Children with L-shaped connector */}
       {teamOpen && !collapsed && (
         <div className="relative ml-[38px] flex flex-col gap-0.5 mb-1 mt-0.5">
-          {/* Vertical line */}
           <div
             className="absolute top-0 bottom-0 w-px bg-white/20"
             style={{ left: '-12px' }}
@@ -269,7 +274,6 @@ const TeamNavItem = memo(function TeamNavItem({
             const isActive = location.pathname === child.to
             return (
               <div key={child.label} className="relative">
-                {/* Horizontal tick */}
                 <div
                   className="absolute top-1/2 -translate-y-1/2 h-px w-3 bg-white/20"
                   style={{ left: '-12px' }}
